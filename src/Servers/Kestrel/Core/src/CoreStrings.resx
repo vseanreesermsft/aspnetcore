@@ -653,4 +653,10 @@ For more information on configuring HTTPS see https://go.microsoft.com/fwlink/?l
   <data name="Http3StreamErrorAfterHeaders" xml:space="preserve">
     <value>An error occurred after the response headers were sent, a reset is being sent.</value>
   </data>
+  <data name="Http3ErrorUnsupportedFrameOnRequestStream" xml:space="preserve">
+    <value>The client sent a {frameType} frame to a request stream which isn't supported.</value>
+  </data>
+  <data name="Http3ErrorUnsupportedFrameOnServer" xml:space="preserve">
+    <value>The client sent a {frameType} frame to a the server which isn't supported.</value>
+  </data>
 </root>
