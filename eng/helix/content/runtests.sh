@@ -2,7 +2,7 @@
 
 dotnet_sdk_version="$2"
 dotnet_runtime_version="$3"
-installPlaywright="$10"
+installPlaywright="${10}"
 
 RESET="\033[0m"
 RED="\033[0;31m"
