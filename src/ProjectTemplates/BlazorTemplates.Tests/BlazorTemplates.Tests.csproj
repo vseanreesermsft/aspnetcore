@@ -6,7 +6,6 @@
 
     <RunTemplateTests Condition="'$(RunTemplateTests)' == ''">true</RunTemplateTests>
     <SkipTests Condition="'$(RunTemplateTests)' != 'true'">true</SkipTests>
-    <IsWindowsOnlyTest>true</IsWindowsOnlyTest>
     <SkipHelixArm>true</SkipHelixArm>
     <BaseOutputPath />
     <OutputPath />
