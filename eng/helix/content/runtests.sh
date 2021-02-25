@@ -26,8 +26,9 @@ export DOTNET_CLI_HOME="$DIR/.home$RANDOM"
 
 export DOTNET_SKIP_FIRST_TIME_EXPERIENCE=1
 
-# Set playwright browser path
+# Set playwright stuff
 export PLAYWRIGHT_BROWSERS_PATH="$DIR/ms-playwright"
+export InstallPlaywright="$installPlaywright"
 
 RESET="\033[0m"
 RED="\033[0;31m"
@@ -81,11 +82,11 @@ sync
 
 exit_code=0
 
-echo "Restore: $DOTNET_ROOT/dotnet restore RunTests/RunTests.csproj --ignore-failed-sources  /p:InstallPlaywright=$installPlaywright"
-$DOTNET_ROOT/dotnet restore RunTests/RunTests.csproj --ignore-failed-sources /p:InstallPlaywright=$installPlaywright
+echo "Restore: $DOTNET_ROOT/dotnet restore RunTests/RunTests.csproj --ignore-failed-sources"
+$DOTNET_ROOT/dotnet restore RunTests/RunTests.csproj --ignore-failed-sources
 
-echo "Running tests: $DOTNET_ROOT/dotnet run --no-restore /p:InstallPlaywright=$installPlaywright --project RunTests/RunTests.csproj -- --target $1 --runtime $4 --queue $5 --arch $6 --quarantined $7 --ef $8 --helixTimeout $9"
-$DOTNET_ROOT/dotnet run --no-restore /p:InstallPlaywright=$installPlaywright --project RunTests/RunTests.csproj -- --target $1 --runtime $4 --queue $5 --arch $6 --quarantined $7 --ef $8 --helixTimeout $9
+echo "Running tests: $DOTNET_ROOT/dotnet run --no-restore --project RunTests/RunTests.csproj -- --target $1 --runtime $4 --queue $5 --arch $6 --quarantined $7 --ef $8 --helixTimeout $9"
+$DOTNET_ROOT/dotnet run --no-restore --project RunTests/RunTests.csproj -- --target $1 --runtime $4 --queue $5 --arch $6 --quarantined $7 --ef $8 --helixTimeout $9
 exit_code=$?
 echo "Finished tests...exit_code=$exit_code"
 
