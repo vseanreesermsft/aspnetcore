@@ -70,6 +70,16 @@ else
 fi
 echo
 
+if [ "$installPlaywright" == "true" ]
+    echo "InstallDotNet $DOTNET_ROOT 3.1.12 '' '' true"
+    InstallDotNet $DOTNET_ROOT 3.1.12 "" "" true || {
+      exit_code=$?
+      Write-PipelineTelemetryError -Category 'InitializeToolset' -Message "dotnet-install.sh failed (exit code '$exit_code')." >&2
+      ExitWithExitCode $exit_code
+    }
+    echo
+fi
+
 if [ -e /proc/self/coredump_filter ]; then
   # Include memory in private and shared file-backed mappings in the dump.
   # This ensures that we can see disassembly from our shared libraries when
