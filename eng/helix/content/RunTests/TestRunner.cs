@@ -99,6 +99,7 @@ namespace RunTests
             {
                 Console.WriteLine($"Installing Playwright to {EnvironmentVariables["PLAYWRIGHT_BROWSERS_PATH"]}");
                 await Playwright.InstallAsync(EnvironmentVariables["PLAYWRIGHT_BROWSERS_PATH"]);
+                DisplayContents(EnvironmentVariables["PLAYWRIGHT_BROWSERS_PATH"]);
                 return true;
             }
             catch (Exception e)
