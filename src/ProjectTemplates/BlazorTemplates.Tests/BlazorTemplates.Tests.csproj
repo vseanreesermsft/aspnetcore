@@ -58,4 +58,13 @@
 
   <!-- Shared testing infrastructure for running E2E template tests -->
   <Import Project="..\TestInfrastructure\PrepareForTest.targets" />
+
+  <Target Name="PublishAssets" AfterTargets="Publish">	
+    <ItemGroup>	
+      <_PublishFiles Include="$(ArtifactsBinDir).playwright\**\*.*" />	
+    </ItemGroup>	
+    <Copy SourceFiles="@(_PublishFiles)" DestinationFolder="$(PublishDir)\.playwright\%(_PublishFiles.RecursiveDir)\%(_PublishFiles.FileName)%(_PublishFiles.Extension)" />	
+  </Target>
+
+
 </Project>
