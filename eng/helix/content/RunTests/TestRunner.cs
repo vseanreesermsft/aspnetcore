@@ -48,9 +48,8 @@ namespace RunTests
                 var playwrightBrowsers = Path.Combine(helixDir, "ms-playwright");
                 Console.WriteLine($"Setting PLAYWRIGHT_BROWSERS_PATH: {playwrightBrowsers}");
                 EnvironmentVariables.Add("PLAYWRIGHT_BROWSERS_PATH", playwrightBrowsers);
-                var playwrightDrivers = Path.Combine(helixDir, ".playwright");
-                Console.WriteLine($"Setting PLAYWRIGHT_DRIVER_PATH: {playwrightDrivers}");
-                EnvironmentVariables.Add("PLAYWRIGHT_DRIVER_PATH", playwrightDrivers);
+                Console.WriteLine($"Setting PLAYWRIGHT_DRIVER_PATH: {helixDir}");
+                EnvironmentVariables.Add("PLAYWRIGHT_DRIVER_PATH", helixDir);
 #else
                 Console.WriteLine($"Skipping setting PLAYWRIGHT_BROWSERS_PATH");
 #endif
