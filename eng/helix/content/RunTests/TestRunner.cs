@@ -99,9 +99,8 @@ namespace RunTests
         {
             try
             {
-                DisplayContents(EnvironmentVariables["PLAYWRIGHT_DRIVER_PATH"]);
-                Console.WriteLine($"Installing Playwright to {EnvironmentVariables["PLAYWRIGHT_BROWSERS_PATH"]}");
-                await Playwright.InstallAsync(EnvironmentVariables["PLAYWRIGHT_BROWSERS_PATH"]);
+                Console.WriteLine($"Installing Playwright to Browsers: {EnvironmentVariables["PLAYWRIGHT_BROWSERS_PATH"]} Drivers: {EnvironmentVariables["PLAYWRIGHT_DRIVER_PATH"]}");
+                await Playwright.InstallAsync(EnvironmentVariables["PLAYWRIGHT_BROWSERS_PATH"], EnvironmentVariables["PLAYWRIGHT_DRIVER_PATH"]);
                 DisplayContents(EnvironmentVariables["PLAYWRIGHT_BROWSERS_PATH"]);
                 return true;
             }
